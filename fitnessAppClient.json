@@ -1,5 +1,5 @@
 {
-    "url": "",
+    "url": "https://fitness-app-villacin.vercel.app/",
     "endpoints": {
         "register": "/register",
         "login": "/login",

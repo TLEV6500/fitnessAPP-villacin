@@ -45,7 +45,6 @@ const handleAuth = async () => {
 
     try {
         const url = `${API_BASE_URL}${endpoint}`;
-        console.log(url);
         const authResponse = await fetch(url, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -63,7 +62,6 @@ const handleAuth = async () => {
         }
 
         const jwt = authData.access;
-        console.log(jwt);
         const detailsResponse = await fetch(`${API_BASE_URL}/users/details`, {
             method: "GET",
             headers: {
