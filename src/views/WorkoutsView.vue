@@ -77,7 +77,7 @@ const fetchWorkouts = async () => {
         const data = await authFetch("/workouts/getMyWorkouts");
         workouts.value = data.workouts || data;
     } catch (error) {
-        console.error("Failed to load workouts:", error);
+        console.debug("Failed to load workouts:", error);
     } finally {
         isLoading.value = false;
     }
