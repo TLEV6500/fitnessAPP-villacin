@@ -134,10 +134,16 @@ const saveWorkout = async () => {
 };
 
 // Update (Toggle Status)
-const toggleStatus = async (id) => {
+const toggleStatus = async (id, status) => {
     try {
         await authFetch(`/workouts/completeWorkoutStatus/${id}`, {
             method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                status,
+            }),
         });
         await fetchWorkouts(); // Refresh to show the new status
     } catch (error) {
@@ -287,7 +293,7 @@ const removeWorkout = async (id) => {
                                 >
                                     <li>
                                         <button
-                                            @click="toggleStatus(workout._id)"
+                                            @click="toggleStatus(workout._id, workout.status === 'completed' ? 'pending' : 'completed')"
                                             class="dropdown-item fw-semibold"
                                         >
                                             {{
