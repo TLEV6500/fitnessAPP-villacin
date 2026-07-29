@@ -240,7 +240,7 @@ const removeWorkout = async (id) => {
                                 >Completed</span
                             >
                             <span
-                                v-if="workout.status === 'ongoing'"
+                                v-else-if="workout.status === 'ongoing'"
                                 class="badge bg-dark rounded-0 border border-light px-2 py-1 text-uppercase"
                                 >Ongoing</span
                             >
